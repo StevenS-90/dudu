@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>💘</title>
+
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(180deg, #fff, #ffe6ee);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .container {
+        background: white;
+        padding: 2.5rem 2rem;
+        max-width: 520px;
+        width: 90%;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+
+    .text-top {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        color: #333;
+    }
+
+    img {
+        max-width: 260px;
+        width: 100%;
+        margin: 1.5rem auto;
+        border-radius: 12px;
+        display: block;
+    }
+
+    .text-middle {
+        font-size: 0.95rem;
+        margin: 1.8rem 0 1.5rem;
+        color: #666;
+    }
+
+    button {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        border-radius: 999px;
+        border: none;
+        background: linear-gradient(135deg, #ff5c8a, #ff3f78);
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 8px 18px rgba(255, 92, 138, 0.35);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px rgba(255, 92, 138, 0.45);
+    }
+
+    button:active {
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+function downloadCalendar() {
+const icsContent =
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Valentine Date//EN
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE
+TZID:Europe/Zurich
+BEGIN:STANDARD
+DTSTART:19701025T030000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19700329T020000
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:valentine20260306@love.local
+DTSTAMP:20260201T120000Z
+DTSTART;TZID=Europe/Zurich:20260306T200000
+DTEND;TZID=Europe/Zurich:20260306T230000
+SUMMARY:Valentine Date 💕
+DESCRIPTION:A special date night together
+LOCATION:Hallenstadion Zürich
+END:VEVENT
+END:VCALENDAR`;
+
+    const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "valentine-date-hallenstadion-zurich.ics";
+    link.click();
+}
+</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-top">
+            Mein Bubu,<br><br>
+            mit dir fühlt sich jeder Tag ein bisschen mehr nach Zuhause an. 
+            Deine Nähe gibt mir Ruhe, und dein Herz ist der Ort, an dem ich bleiben will.<br><br>
+            Ich liebe die kleinen Momente mit dir genauso wie die grossen Träume, 
+            die wir teilen. Danke, dass es dich gibt und Du immer für mich da bist.<br><br>
+            Am Valentinstag (und an allen anderen Tagen) gehört mein Herz dir. <br><br>
+            Ich kann es kaum erwarten, am 14.02.2026 mit dir vietnamesisch essen zu gehen.<br><br>
+            In Liebe ❤️<br>
+            Dein Dudu
+        </div>
+
+        <img src="bubu-dudu-valentine's-day-happy-valentine's-day-bubu.gif" alt="Love GIF">
+
+        <div class="text-middle">
+            Diesen Termin musst Du dir unbedingt auch reservieren – am besten gleich herunterladen ✨
+        </div>
+
+        <button onclick="downloadCalendar()">
+            Save the date 📅
+        </button>
+    </div>
+</body>
+</html>
